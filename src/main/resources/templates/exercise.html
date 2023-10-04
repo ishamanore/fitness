@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <link rel="stylesheet"  th:href="@{/css/exercise.css}">
+<title>Insert title here</title>
+</head>
+<body>
+    <div class="card-container" >
+        <div class="card" th:each="e , status :${title}">
+            <img th:src="'../assets/'+${e.type}+'.jpg'"></img>
+            <h2 th:text="${e.type}"></h2>
+            <a  th:href="@{/display/{type}(type=${e.type})}">
+          Get more..
+        </a>
+
+        </div>
+        
+    </div>
+</body>
+</html>

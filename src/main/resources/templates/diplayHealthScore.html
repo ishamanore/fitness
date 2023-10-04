@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" th:href="@{/css/healthCalc.css}" />
+<title >hggf</title>
+<style>
+        /* Define the container to hold the boxes */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* First column is 2 times wider */
+            grid-template-rows: 1fr 1fr; /* 2 rows */
+            gap: 10px; /* Gap between the boxes */
+            height: 500px; /* Set a fixed height for the container */
+            width: 50%;
+            margin: auto;
+            padding: 10%;
+        }
+        /* Define the individual boxes */
+        .box {
+            
+            padding: 0px 0px 0px 0px;
+            text-align: center;
+            color: #000000;            
+        }
+
+        /* Style for specific boxes */
+        .box1 {
+           
+            grid-row: 1;
+            grid-column: 1;
+            padding: 0px 0px 0px 0px;
+            background-color: #ffffff;
+           
+        }
+
+        .box2 {
+            border: 1px solid #ffffff;
+            grid-row: 1 / span 2; /* Span 2 rows */
+            grid-column: 2;
+            background-color: #ffffff;
+        }
+
+        .box3 {
+            border: 1px solid #ffffff;
+            grid-row: 2;
+            grid-column: 1;
+            background-color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+hello
+<body style="background-color: #131336;">
+    
+    <div class="container">
+        <div class="box box1"><h1>Your Score</h1></div>
+        <div class="box box2"> <h2></h2></div>
+        <div class="box box3"><h2></h2></div>
+    </div>
+</body>
+</body>
+</html>

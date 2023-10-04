@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/healthCalc.css}" />
+</head>
+<body style="background-color: #131336; text-align: center;">
+<div class="main-custom-box">
+    <h1 style="color: #FFFFFF;"><img src="assets/logo/insurance.png" style="height: 70px; width: 70px;" alt="Sleep">&nbsp;Health Score Calculator</h1>
+    <p style="color: #FFFFFF;">The information provided will only be used to calculate your health score and will
+        </p>
+        <p style="color: #FFFFFF;">not be shared with third paties.</p>
+    <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+    <br><br><br>
+    <form id="calculator" method="post" th:action="@{/displayScore}"  >
+            <input type="hidden" name="XID" value="fa26f30afb4cf1ec4d0398ef13454794eef4879f">
+
+            <div class="hiddenFields">
+                <input type="hidden" name="error_page" value="http://newstartclub.com/my-health/calculator-error">
+            </div>
+            <div class="sub-custom-box-row-1 tatsu-row">
+                <div class="grid custom-grid-1 custom-grid-box tatsu-column tatsu-one-half">
+                    <div class="custom-grid-1-1 custom-grid-1-box">
+                        <label for="member_age">Age</label><br>
+                        <input type="text" placeholder="yrs" pattern="[0-9]*" class="input valid" name="member_age" id="member_age" value="" size="3" onblur="healthcalc(this.form)">
+                        <p id="age-field" style='color:#d9362c'></p>		
+                    </div>
+                    <div class="custom-grid-1-2 custom-grid-1-box">				
+                        <label for="member_weight">Weight</label><br>
+                        <input type="text" placeholder="lbs" pattern="[0-9]*" class="input" name="member_weight" id="member_weight" value="" size="5" onblur="healthcalc(this.form)">
+                            <p id="weight-field" style='color:#d9362c'></p>
+                    </div>
+                    <div class="custom-grid-1-3 custom-grid-1-box">				
+                        <label for="member_height_in">Height</label><br>
+                        <select class="input" name="member_height_in" id="member_height_in" onblur="healthcalc(this.form)">
+                                    <option value="">ft./in.</option>
+                                    <optgroup label="3 foot">
+                                        <option value="36">3' 0"</option>
+                                        <option value="37">3' 1"</option>
+                                        <option value="38">3' 2"</option>
+                                        <option value="39">3' 3"</option>
+                                        <option value="40">3' 4"</option>
+                                        <option value="41">3' 5"</option>
+                                        <option value="42">3' 6"</option>
+                                        <option value="43">3' 7"</option>
+                                        <option value="44">3' 8"</option>
+                                        <option value="45">3' 9"</option>
+                                        <option value="46">3' 10"</option>
+                                        <option value="47">3' 11"</option>
+                                    </optgroup>
+                                    <optgroup label="4 foot">
+                                        <option value="48">4' 0"</option>
+                                        <option value="49">4' 1"</option>
+                                        <option value="50">4' 2"</option>
+                                        <option value="51">4' 3"</option>
+                                        <option value="52">4' 4"</option>
+                                        <option value="53">4' 5"</option>
+                                        <option value="54">4' 6"</option>
+                                        <option value="55">4' 7"</option>
+                                        <option value="56">4' 8"</option>
+                                        <option value="57">4' 9"</option>
+                                        <option value="58">4' 10"</option>
+                                        <option value="59">4' 11"</option>
+                                    </optgroup>
+                                    <optgroup label="5 foot">
+                                        <option value="60">5' 0"</option>
+                                        <option value="61">5' 1"</option>
+                                        <option value="62">5' 2"</option>
+                                        <option value="63">5' 3"</option>
+                                        <option value="64">5' 4"</option>
+                                        <option value="65">5' 5"</option>
+                                        <option value="66">5' 6"</option>
+                                        <option value="67">5' 7"</option>
+                                        <option value="68">5' 8"</option>
+                                        <option value="69">5' 9"</option>
+                                        <option value="70">5' 10"</option>
+                                        <option value="71">5' 11"</option>
+                                    </optgroup>
+                                    <optgroup label="6 foot">
+                                        <option value="72">6' 0"</option>
+                                        <option value="73">6' 1"</option>
+                                        <option value="74">6' 2"</option>
+                                        <option value="75">6' 3"</option>
+                                        <option value="76">6' 4"</option>
+                                        <option value="77">6' 5"</option>
+                                        <option value="78">6' 6"</option>
+                                        <option value="79">6' 7"</option>
+                                        <option value="80">6' 8"</option>
+                                        <option value="81">6' 9"</option>
+                                        <option value="82">6' 10"</option>
+                                        <option value="83">6' 11"</option>
+                                    </optgroup>
+                                    <optgroup label="7 foot">
+                                        <option value="84">7' 0"</option>
+                                        <option value="85">7' 1"</option>
+                                        <option value="86">7' 2"</option>
+                                        <option value="87">7' 3"</option>
+                                        <option value="88">7' 4"</option>
+                                        <option value="89">7' 5"</option>
+                                        <option value="90">7' 6"</option>
+                                        <option value="91">7' 7"</option>
+                                        <option value="92">7' 8"</option>
+                                        <option value="93">7' 9"</option>
+                                        <option value="94">7' 10"</option>
+                                        <option value="95">7' 11"</option>
+                                    </optgroup>
+                                    <optgroup label="8 foot">
+                                        <option value="96">8' 0"</option>
+                                        <option value="97">8' 1"</option>
+                                        <option value="98">8' 2"</option>
+                                        <option value="99">8' 3"</option>
+                                        <option value="100">8' 4"</option>
+                                        <option value="101">8' 5"</option>
+                                        <option value="102">8' 6"</option>
+                                        <option value="103">8' 7"</option>
+                                        <option value="104">8' 8"</option>
+                                        <option value="105">8' 9"</option>
+                                        <option value="106">8' 10"</option>
+                                        <option value="107">8' 11"</option>
+                                    </optgroup>
+                                </select>
+                                <p id="height-field" style='color:#d9362c'></p>
+                    </div>
+                    <div class="custom-grid-1-4 custom-grid-1-box">				
+                        <label for="member_waist_in">Waist Size</label><br>
+                        <input type="text" placeholder="in" pattern="[0-9]*" class="input" name="member_waist_in" id="member_waist_in" value="" size="3" onblur="healthcalc(this.form)">
+                    </div>
+                </div>
+                <div class="grid custom-grid-2 tatsu-column tatsu-one-half">
+                    <h2 class="heading-text"><img src="assets/logo/sleep.png" style="height: 48px; width: 48px;" alt="Sleep">&nbsp;Sleep</h2>
+                    <p class="content-text-p">How many hours do you usually sleep per night?</p>
+                    <ul class="custom-ul-style">
+                        <li><label><input type="radio" name="member_score_sleep" class="member_score_sleep" value="5" onclick="healthcalc(this.form)"> <span>5 hours or less</span></label></li>
+                        <li><label><input type="radio" name="member_score_sleep" class="member_score_sleep" value="9" onclick="healthcalc(this.form)"> <span>6 hours</span></label></li>
+                        <li><label><input type="radio" name="member_score_sleep" class="member_score_sleep" value="11" onclick="healthcalc(this.form)"> <span>7-8 hours</span></label></li>
+                        <li><label><input type="radio" name="member_score_sleep" class="member_score_sleep" value="7" onclick="healthcalc(this.form)"> <span>9 hours or more</span></label></li>
+                    </ul>
+                    <!-- <p class="messageBox"><input type="checkbox" name="member_score_sleep1"></p> -->
+                    <p id="error-sleep" style='color:#d9362c'></p>
+                </div>
+            </div>
+
+            <div class="sub-custom-box-row-2 tatsu-row">
+                <div class="grid custom-grid-3 tatsu-column tatsu-one-half">
+                    <h2 class="heading-text"> <img src="assets/logo/triangle.png" style="height: 55px; width: 55px;"  alt="Exercise">&nbsp;Exercise</h2>
+                    <p class="content-text-p">How often do you get vigorous physical activity for at least 20-30 minutes? <br><span>(Examples: Brisk walking, gardening, jogging, sports, swimming, or cycling.)</span></p>
+                    <ul class="custom-ul-style">
+                        <li><label><input type="radio" name="member_score_exercise" class="member_score_exercise" value="13" onclick="healthcalc(this.form)"> <span>Daily</span></label></li>
+                        <li><label><input type="radio" name="member_score_exercise" class="member_score_exercise" value="11" onclick="healthcalc(this.form)"> <span>Most every day</span></label></li>
+                        <li><label><input type="radio" name="member_score_exercise" class="member_score_exercise" value="7" onclick="healthcalc(this.form)"> <span>Less than 3 times a week</span></label></li>
+                        <li><label><input type="radio" name="member_score_exercise" class="member_score_exercise" value="5"	 onclick="healthcalc(this.form)"> <span>Rarely</span></label></li>
+                    </ul>
+                    <p id="error-exercise" style='color:#d9362c'></p>
+                    <!-- <p class="messageBox"><input type="checkbox" name="member_score_exercise1"></p> -->
+                </div>
+                <div class="grid custom-grid-4 tatsu-column tatsu-one-half">
+                    <h2 class="heading-text"> <img src="assets/logo/liquor.png" style="height: 70px; width: 70px;"  alt="Alcohol Use">&nbsp;Alcohol Use</h2>
+                    <p class="content-text-p">How many servings of alcohol do you drink in a week?</p>
+                    <ul class="custom-ul-style">
+                        <li><label><input type="radio" name="member_score_alcohol" class="member_score_alcohol" value="11" onclick="healthcalc(this.form)"> <span>None</span></label></li>
+                        <li><label><input type="radio" name="member_score_alcohol" class="member_score_alcohol" value="9" onclick="healthcalc(this.form)"> <span>1-2 Servings</span></label></li>
+                        <li><label><input type="radio" name="member_score_alcohol" class="member_score_alcohol" value="5" onclick="healthcalc(this.form)"> <span>3-10 Servings</span></label></li>
+                        <li><label><input type="radio" name="member_score_alcohol" class="member_score_alcohol" value="1" onclick="healthcalc(this.form)"> <span>Over 10 Servings</span></label></li>
+                    </ul>
+                    <p id="error-alcohol" style='color:#d9362c'></p>
+                    <!-- <p class="messageBox"><input type="checkbox" name="member_score_alcohol1"></p>	 -->
+                </div>
+            </div>	
+
+            <div class="sub-custom-box-row-3 tatsu-row">
+                <div class="grid custom-grid-5 tatsu-column tatsu-one-half">
+                    <h2 class="heading-text"> <img src="assets/logo/smoking-area.png" style="height: 48px; width: 48px;"  alt="Smoking History">&nbsp;Smoking History</h2>
+                    <ul class="custom-ul-style custom-ul-style-smok" style="display: inline-block;">
+                        <div style="display: flex;justify-content: center;">
+                            <li><label><input type="radio" name="member_score_smoking" class="member_score_smoking" value="11" onclick="healthcalc(this.form)"> <span>I have never smoked</span></label></li>
+                            <li id="somking-quit"><label><input type="radio" name="member_score_smoking" class="member_score_smoking" value="9" onclick="healthcalc(this.form)"> <span>I have quit smoking</span></label></li>
+                        </div>
+                        <div style="display: flex;justify-content: center;">
+                            <li><label><input type="radio" name="member_score_smoking" class="member_score_smoking" value="3" onclick="healthcalc(this.form)"> <span>I smoke less than 1 pack a day</span></label></li>
+                            <li><label><input type="radio" name="member_score_smoking" class="member_score_smoking" value="0" onclick="healthcalc(this.form)"> <span>I smoke more than 1 pack a day</span></label></li>
+                        </div>
+                    </ul>
+                    <p id="error-smoking" style='color:#d9362c'></p>
+                    <!-- <p class="messageBox"><input type="checkbox" name="member_score_smoking1"></p> -->	
+                </div>
+                <div class="grid custom-grid-6 tatsu-column tatsu-one-half">
+                    <h2 class="heading-text"> <img src="assets/logo/diet.png" style="height: 55px; width: 55px;"  alt="Diet">&nbsp;Diet</h2>
+                    <p class="content-text-p">How often do you eat only plant-based foods? (No meat or dairy products.)</p>
+                    <ul class="custom-ul-style">
+                        <li><label><input type="radio" name="member_score_diet" class="member_score_diet" value="11" onclick="healthcalc(this.form)"> <span>Almost Every Day</span></label></li>
+                        <li><label><input type="radio" name="member_score_diet" class="member_score_diet" value="9" onclick="healthcalc(this.form)"> <span>Sometimes</span></label></li>
+                        <li><label><input type="radio" name="member_score_diet" class="member_score_diet" value="5" onclick="healthcalc(this.form)"> <span>Rarely or never</span></label></li>
+                    </ul>
+                    <p id="error-diet" style='color:#d9362c'></p>
+                    <!-- <p class="messageBox"><input type="checkbox" name="member_score_diet1"></p>	 -->
+                </div>
+            </div>
+
+            <div class="sub-custom-box-row-4 tatsu-row">
+                <div class="grid custom-grid-7 tatsu-column tatsu-one-half">
+                    <h2 class="heading-text"><img src="assets/logo/healthy-food.png" style="height: 55px; width: 55px;"  alt="Nutrition">&nbsp;Nutrition</h2>
+                    <p class="content-text-p">How often do you eat foods containing refined sugar or oil?</p>
+                    <ul class="custom-ul-style">
+                        <li><label><input type="radio" name="member_score_nutrition" class="member_score_nutrition" value="6" onclick="healthcalc(this.form)"> <span>Almost every day</span></label></li>
+                        <li><label><input type="radio" name="member_score_nutrition" class="member_score_nutrition" value="8" onclick="healthcalc(this.form)"> <span>Once in a while</span></label></li>
+                        <li><label><input type="radio" name="member_score_nutrition" class="member_score_nutrition" value="10" onclick="healthcalc(this.form)"> <span>Rarely or never</span></label></li>
+                        
+                        
+                    </ul>
+                    <p id="error-nutrition" style='color:#d9362c'></p>
+                    <!-- <p class="messageBox"><input type="checkbox" name="member_score_nutrition1"></p> -->
+                        
+
+                </div>
+                <div class="grid custom-grid-8 tatsu-column tatsu-one-half">
+                    <h2 class="heading-text"><img src="assets/logo/mood.png" style="height: 65px; width: 65px;"  alt="Emotional Well-being">&nbsp;Emotional Well-being</h2>
+                    <p class="content-text-p">How was your sense of emotional well-being this past week?</p>
+                    <ul class="custom-ul-style">
+                        <li><label><input type="radio" name="member_score_emotional" class="member_score_emotional" value="11" onclick="healthcalc(this.form)"> <span>Happy</span></label></li>
+                        <li><label><input type="radio" name="member_score_emotional" class="member_score_emotional" value="9" onclick="healthcalc(this.form)"> <span>Up and down</span></label></li>
+                        <li><label><input type="radio" name="member_score_emotional" class="member_score_emotional" value="7" onclick="healthcalc(this.form)"> <span>Sad</span></label></li>
+                        <li><label><input type="radio" name="member_score_emotional" class="member_score_emotional" value="5" onclick="healthcalc(this.form)"> <span>Depressed</span></label></li>
+                    </ul>
+                    <p id="error-emotional" style='color:#d9362c'></p>
+                    <!-- <p class="messageBox"><input type="checkbox" name="member_score_emotional1"></p> -->
+                </div>
+            </div>
+
+            <div class="grid custom-grid-9">
+                <h2 class="heading-text hide-me">Total Score</h2>
+                <input type="text" name="member_score_total" value="" class="hiddens hide-me" id="js-member-score-total-input" placeholder="calculate" disabled="" style="
+text-align: center;">
+                <div class="center">
+                    <button type="submit" class="super secondary button submit-btn" id="calculate" ><span>Calculate</span></button>
+                    <span id="msg_show" style="display: block;color: #870101;"></span>
+                </div>	
+            </div>
+            
+                        
+    </form>
+
+</div>		     
+</body>
+</html>

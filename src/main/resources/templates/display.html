@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <link rel="stylesheet"  th:href="@{/css/video.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<header>
+        <h1 th:text="${type}+' Exercise'"></h1>
+    </header>
+	<div class="container">
+	        <div class="heading"></div>
+	        <div class="video-container">
+	            <div class="video">
+	                <video th:src="'../videos/'+${type}+'/'+${type}+'1.mp4'" autoplay loop muted></video>
+	            </div> 
+	            <div class="video">
+	                <video th:src="'../videos/'+${type}+'/'+${type}+'2.mp4'" autoplay loop muted></video>
+	            </div> 
+	            <div class="video">
+	                <video th:src="'../videos/'+${type}+'/'+${type}+'3.mp4'" autoplay loop muted></video>
+	            </div> 
+	            <div class="video">
+	                <video th:src="'../videos/'+${type}+'/'+${type}+'4.mp4'" autoplay loop muted></video>
+	            </div> 
+	            <div class="video">
+	                <video th:src="'../videos/'+${type}+'/'+${type}+'5.mp4'" autoplay loop muted></video>
+	            </div> 
+	            <div class="video">
+	                <video th:src="'../videos/'+${type}+'/'+${type}+'6.mp4'" autoplay loop muted></video>
+	            </div> 
+	        </div>
+	    </div>
+
+<script>
+        var video = document.querySelectorAll('video');
+        video.forEach(play => play.addEventListener('click',() => {
+            play.classList.toggle('active');
+            play.play();
+           
+        }));
+        
+</script>
+</body>
+</html>

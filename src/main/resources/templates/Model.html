@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  th:href="@{/css/dietFinal.css}">
+    <title></title>
+</head>
+<body >
+    <header>
+        <h1 th:text="${title}">Your Recipe Title</h1>
+    </header>
+    <main>
+        <section class="recipe">
+            <img th:src="'../assets/'+${title}+'.jpg'" alt="Recipe Image">
+            <h2>Ingredients</h2>
+            
+            <p th:text="${ingredients}"></p>
+            
+            <h2>Instructions</h2>
+            <h4 th:each="continent : ${instruction}" th:text="${continent}"></h4>
+        </section>
+    </main>
+</body>
+</html>
